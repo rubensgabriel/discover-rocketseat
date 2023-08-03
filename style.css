@@ -5,7 +5,7 @@
 
 :root {
   --text-color: white;
-  --bg-url: url(assets/bg-mobile.jpg);
+  --bg-url: url(assets/bg-destop-blue.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -15,7 +15,7 @@
 
 .light {
   --text-color: black;
-  --bg-url: url(assets/bg-mobile-light.jpg);
+  --bg-url: url(assets/bg-blue.avif);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -33,6 +33,7 @@ body {
 
   /*backgound; color image, repeat position*/
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -41,8 +42,9 @@ body * {
 }
 
 #container {
-  width: 360px;
-  margin: 56px auto 0px;
+  width: 100%;
+  max-width: 428px;
+  margin: 46px auto 0px;
   padding: 0 24px;
 }
 
@@ -64,9 +66,10 @@ body * {
 /* switch */
 #switch {
   position: relative;
-  width: 66px;
+  width: 68px;
 
   margin: 4px auto;
+  cursor: pointer;
 }
 
 #switch button {
@@ -81,11 +84,17 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  cursor: pointer;
+
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -160,7 +169,60 @@ ul li a:hover {
 }
 
 footer {
-  padding: 24px 0;
+  padding: 16px 0;
   text-align: center;
   font-size: 16px;
+  margin: 0;
+}
+/*
+@media (min-width: 780px) {
+  :root {
+    --bg-url: url(assets/bg-desktop.jpg)
+  }
+
+  .light {
+    --bg-url: url(assets/bg-desktop-light.jpg)
+  }
+}
+*/
+/* load */
+.loader-container {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.loader-container img {
+    width: 40rem;
+}
+
+.loader-container.fade-out {
+    top: 110%;
+    opacity: 0;
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
