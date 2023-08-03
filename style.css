@@ -15,7 +15,7 @@
 
 .light {
   --text-color: black;
-  --bg-url: url(assets/bg-blue.avif);
+  --bg-url: url(assets/bg-blu-mobile.avif);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -174,17 +174,18 @@ footer {
   font-size: 16px;
   margin: 0;
 }
-/*
+
 @media (min-width: 780px) {
+/*
   :root {
     --bg-url: url(assets/bg-desktop.jpg)
   }
-
+*/
   .light {
-    --bg-url: url(assets/bg-desktop-light.jpg)
+    --bg-url: url(assets/bg-blue.avif)
   }
 }
-*/
+
 /* load */
 .loader-container {
     position: fixed;
